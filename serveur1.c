@@ -28,10 +28,18 @@ int main(void)
 	printf("vous etes a present connecte \n");
 	
 	int *argument = malloc(sizeof(int));
-	*argument = socketClient;
+	*argument = socketclient;
 	
 	User user = {
 		.message = "MEKEME BELONE soyez la bienvenue",
 	};
+	send(socketclient, &user, sizeof(user), 0);
+
+	close(socketclient);// fermeture du socket client .
+	close(socketServer);// feremeture du socket serveur.
+	printf("fin du procede\n");
+	printf("aurevoir et a bientot")
+
+	return 0;
 	
 }
