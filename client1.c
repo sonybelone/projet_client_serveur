@@ -1,4 +1,4 @@
-#include <stdio>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include<sys/types.h>
@@ -16,8 +16,8 @@ typedef struct User
 
 int main()
 {
-	int socketclient = socket(AF_INET, SOCK_STREAM, 0)//creation d'un socket duclient
-	struct sockaddr_in addrClient;
+	int socketclient = socket(AF_INET, SOCK_STREAM, 0);//creation d'un socket duclient
+	struct sockaddr_in addrclient;
 	addrclient.sin_addr.s_addr = inet_addr("127.0.0.1");// adresse par defaut du serveur 
 	addrclient.sin_family = AF_INET;
 	addrclient.sin_port = htons(2500);//l'etablissement de la connection au port
@@ -25,7 +25,7 @@ int main()
 	printf("vous etes maintenant connecte\n");
 	User user;
 	recv(socketclient, &user, sizeof(User), 0);//prendre le message au serveur et renvoyer au client
-	printf("%s \n",user.nom);
+	printf("%s \n",user.message);
 	
 	close(socketclient);
 
