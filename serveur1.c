@@ -27,4 +27,11 @@ int main(void)
 	int socketclient = accept(socketServer, (struct sockaddr *) &addrclient, &csize);// ici le serveur accepte que le client se connecte a lui
 	printf("vous etes a present connecte \n");
 	
+	int *argument = malloc(sizeof(int));
+	*argument = socketClient;
+	
+	User user = {
+		.message = "MEKEME BELONE soyez la bienvenue",
+	};
+	
 }
