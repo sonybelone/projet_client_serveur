@@ -20,5 +20,11 @@ int main(void)
 	bind(socketServer, (const struct sockaddr *)&addrServer, sizeof(addrServer));//l'etablissessement de la connexion au serveur
 	
 	listen(socketServer, 1);// le serveur est en attente d'une connection client
-	printf("attente de connexion du client\n");	
+	printf("attente de connexion du client\n");
+
+	struct sockaddr_in addrclient;
+	socklen_t csize = sizeof(addrclient);
+	int socketclient = accept(socketServer, (struct sockaddr *) &addrclient, &csize);// ici le serveur accepte que le client se connecte a lui
+	printf("vous etes a present connecte \n");
+	
 }
